@@ -18,7 +18,10 @@ body {
     margin: 35;
 }
 
-
+video {
+            max-width: 100%;
+            height: auto;
+        }
 
 
 html {
