@@ -187,8 +187,6 @@ Ia mengejar penampilan dan menginginkan pasangan yang elok.</p>
 
 <div class="container">
        
-        <p> Anda dapat memberikan komentar dan menyukai artikel ini.</p>
-        
         <div class="comment-section">
          
             <div id="comments">
@@ -209,19 +207,14 @@ Ia mengejar penampilan dan menginginkan pasangan yang elok.</p>
     </div>
 
 
- <script>
-      <script>
-        // Inisialisasi like count
-        let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
-        document.getElementById('like-count').innerText = likeCount;
+  <script>
+        let likeCount = 0;
 
         function addLike() {
             likeCount++;
             document.getElementById('like-count').innerText = likeCount;
-            localStorage.setItem('likeCount', likeCount);
         }
 
-        // Fungsi untuk menambahkan komentar
         function addComment() {
             const commentInput = document.getElementById('comment-input');
             const commentText = commentInput.value;
@@ -232,34 +225,9 @@ Ia mengejar penampilan dan menginginkan pasangan yang elok.</p>
                 newComment.classList.add('comment');
                 newComment.innerHTML = `<p>${commentText}</p>`;
                 commentSection.appendChild(newComment);
-                saveComment(commentText);
                 commentInput.value = ""; // Mengosongkan input setelah menambahkan komentar
             }
         }
-
-        // Fungsi untuk menyimpan komentar ke localStorage
-        function saveComment(comment) {
-            let comments = localStorage.getItem('comments');
-            comments = comments ? JSON.parse(comments) : [];
-            comments.push(comment);
-            localStorage.setItem('comments', JSON.stringify(comments));
-        }
-
-        // Fungsi untuk memuat komentar dari localStorage
-        function loadComments() {
-            let comments = localStorage.getItem('comments');
-            comments = comments ? JSON.parse(comments) : [];
-            const commentSection = document.getElementById('comments');
-            comments.forEach(comment => {
-                const newComment = document.createElement('div');
-                newComment.classList.add('comment');
-                newComment.innerHTML = `<p>${comment}</p>`;
-                commentSection.appendChild(newComment);
-            });
-        }
-
-        // Panggil fungsi loadComments saat halaman dimuat
-        window.onload = loadComments;
     </script>
 	
 </body>	
