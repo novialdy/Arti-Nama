@@ -187,19 +187,7 @@ Ia mengejar penampilan dan menginginkan pasangan yang elok.</p>
 
 <div class="container">
        
-        <div class="comment-section">
-         
-            <div id="comments">
-                <!-- Komentar akan ditambahkan di sini -->
-            </div>
-        </div>
-        
-        <div class="comment-form">
-            <h2>Tambahkan Komentar</h2>
-            <textarea id="comment-input" placeholder="Tulis komentar Anda di sini..."></textarea>
-            <button onclick="addComment()">Kirim</button>
-        </div>
-        
+   
         <div class="like-section">
             <button class="like-button" onclick="addLike()">Like</button>
             <span class="like-count" id="like-count">0</span> likes
@@ -215,19 +203,8 @@ Ia mengejar penampilan dan menginginkan pasangan yang elok.</p>
             document.getElementById('like-count').innerText = likeCount;
         }
 
-        function addComment() {
-            const commentInput = document.getElementById('comment-input');
-            const commentText = commentInput.value;
-
-            if (commentText.trim() !== "") {
-                const commentSection = document.getElementById('comments');
-                const newComment = document.createElement('div');
-                newComment.classList.add('comment');
-                newComment.innerHTML = `<p>${commentText}</p>`;
-                commentSection.appendChild(newComment);
-                commentInput.value = ""; // Mengosongkan input setelah menambahkan komentar
-            }
-        }
+       
+        
     </script>
 	
 </body>	
