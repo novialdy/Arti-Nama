@@ -195,16 +195,16 @@ Ia mengejar penampilan dan menginginkan pasangan yang elok.</p>
     </div>
 
 
-  <script>
-        let likeCount = 0;
+    <script>
+        // Inisialisasi like count dari localStorage
+        let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
+        document.getElementById('like-count').innerText = likeCount;
 
         function addLike() {
             likeCount++;
             document.getElementById('like-count').innerText = likeCount;
+            localStorage.setItem('likeCount', likeCount); // Simpan like count ke localStorage
         }
-
-       
-        
     </script>
 	
 </body>	
