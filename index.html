@@ -56,6 +56,56 @@
             max-width: 100%;
             height: auto;
         }
+
+ }
+        .comment-section {
+            margin-top: 20px;
+        }
+        .comment {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .comment p {
+            margin: 0;
+        }
+        .like-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .like-button:hover {
+            background-color: #0056b3;
+        }
+        .like-count {
+            margin-left: 10px;
+        }
+        .comment-form {
+            margin-top: 20px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .comment-form button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .comment-form button:hover {
+            background-color: #218838;
+        }
+
+	
     </style>
 </head>	
   <!--- scrip BARA-->
@@ -126,23 +176,65 @@ Ia mengejar penampilan dan menginginkan pasangan yang elok.</p>
 
     </div>
 
-</body>	
-
-
-
-				
-				<div class="row">
-					<div class="col-md-4">
-						<img src="https://namamia.com/images/nama-bayi.png" class="img-responsive">
-					</div>
-					
-
+<div class="row">
+<div class="col-md-4">
+<img src="https://namamia.com/images/nama-bayi.png" class="img-responsive">
 </div>
+	
 <video autoplay loop muted controls>
   <source src="Bara.mp4" type="video/mp4" >
-
 </video>
 
+<div class="container">
+        <h1>Artikel</h1>
+        <p>Ini adalah artikel contoh. Anda dapat memberikan komentar dan menyukai artikel ini.</p>
+        
+        <div class="comment-section">
+            <h2>Komentar</h2>
+            <div id="comments">
+                <!-- Komentar akan ditambahkan di sini -->
+            </div>
+        </div>
+        
+        <div class="comment-form">
+            <h2>Tambahkan Komentar</h2>
+            <textarea id="comment-input" placeholder="Tulis komentar Anda di sini..."></textarea>
+            <button onclick="addComment()">Kirim</button>
+        </div>
+        
+        <div class="like-section">
+            <button class="like-button" onclick="addLike()">Like</button>
+            <span class="like-count" id="like-count">0</span> likes
+        </div>
+    </div>
+
+
+ <script>
+        let likeCount = 0;
+
+        function addLike() {
+            likeCount++;
+            document.getElementById('like-count').innerText = likeCount;
+        }
+
+        function addComment() {
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value;
+
+            if (commentText.trim() !== "") {
+                const commentSection = document.getElementById('comments');
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<p>${commentText}</p>`;
+                commentSection.appendChild(newComment);
+                commentInput.value = ""; // Mengosongkan input setelah menambahkan komentar
+            }
+        }
+    </script>
+	
+</body>	
+</html>
+	    
 <br>
 <br>
 <br>
